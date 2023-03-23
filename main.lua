@@ -1,3 +1,5 @@
+--noise code extracted from love2d wiki
+
 local grid = {}
 camera = {x = 0,y = 0}
 
