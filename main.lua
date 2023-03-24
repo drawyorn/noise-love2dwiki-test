@@ -23,11 +23,11 @@ end
 
 local function generateNoiseGrid()
 	-- Fill each tile in our grid with noise.
-	local baseX = 10000 * love.math.random()
-	local baseY = 10000 * love.math.random()
-	for y = 1, 160 do
+	local baseX = 1000 * love.math.random()
+	local baseY = 1000 * love.math.random()
+	for y = 1, 24 do
 		grid[y] = {}
-		for x = 1, 160 do
+		for x = 1, 24 do
 			grid[y][x] = love.math.noise(baseX+.1*x, baseY+.2*y)
 		end
 	end
@@ -50,7 +50,7 @@ function love.draw()
 	local tileSize = 8
 	for y = 1, #grid do
 		for x = 1, #grid[y] do
-			love.graphics.setColor(1, 1, 1, grid[y][x])
+			love.graphics.setColor(grid[y][x], grid[y][x], grid[y][x])
 			love.graphics.rectangle("fill", x*tileSize-camera.x, y*tileSize-camera.y, tileSize, tileSize)
 		end
 	end
